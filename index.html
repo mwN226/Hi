@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Handover Hub (Demo)</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+    input, textarea, button {
+      width: 100%;
+      margin-top: 1rem;
+      padding: 0.75rem;
+      background: #1e1e1e;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #333;
+      cursor: pointer;
+    }
+    .post {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #1f1f1f;
+      border-radius: 8px;
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Handover Hub (Demo)</h1>
+    <input type="text" placeholder="Gruppenname eingeben" id="groupInput" />
+    <textarea placeholder="Handover-Eintrag schreiben..." id="handoverText"></textarea>
+    <button onclick="postEntry()">Posten</button>
+    <div id="posts"></div>
+  </div>
+
+  <script>
+    function postEntry() {
+      const text = document.getElementById("handoverText").value;
+      if (!text.trim()) return;
+      const post = document.createElement("div");
+      post.className = "post";
+      post.innerText = text;
+      document.getElementById("posts").prepend(post);
+      document.getElementById("handoverText").value = "";
+    }
+  </script>
+</body>
+</html>
